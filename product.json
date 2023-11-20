@@ -1,0 +1,33 @@
+{
+  "productos": {
+    "producto1": {
+      "nombre": "Producto 1",
+      "descripcion": "Descripción del Producto 1",
+      "precio": 10.99
+    },
+    "producto2": {
+      "nombre": "Producto 2",
+      "descripcion": "Descripción del Producto 2",
+      "precio": 19.99
+    },
+    "producto3": {
+      "nombre": "Producto 3",
+      "descripcion": "Descripción del Producto 3",
+      "precio": 7.99
+    }
+  },
+  "usuarios": {
+    "usuario1": {
+      "nombre": "Usuario 1",
+      "email": "usuario1@example.com"
+    },
+    "usuario2": {
+      "nombre": "Usuario 2",
+      "email": "usuario2@example.com"
+    },
+    "usuario3": {
+      "nombre": "Usuario 3",
+      "email": "usuario3@example.com"
+    }
+  }
+}

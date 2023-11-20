@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevoChocolate.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Precio</ion-label>
+    <ion-input [(ngModel)]="nuevoChocolate.precio"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Gramos</ion-label>
+    <ion-input [(ngModel)]="nuevoChocolate.gramos"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarChocolate()" color="medium">Agregar</ion-button>
+</ion-content>

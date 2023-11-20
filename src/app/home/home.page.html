@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar id="home_toolbar">
+    <ion-title>Chocolates</ion-title>
+    <ion-buttons [collapse]="true" slot="end">
+    <ion-button (click)="signOut()" > Cerrar sesión<ion-icon name="log-out-outline"></ion-icon> </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let chocolate of chocolates">
+      {{ chocolate.nombre }}
+      ${{ chocolate.precio}}
+      <br>
+      {{chocolate.gramos}} Gr.
+      <ion-buttons slot="end">
+       <ion-button (click)="navigateToUpdatePage(chocolate.key)"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="deleteProduct(chocolate.key)"><ion-icon name="trash-bin-outline"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="irAAgregar()" color="medium">Agregar Chocolate <ion-icon name="add-circle-outline"></ion-icon></ion-button>
+
+  <div *ngIf="weatherData" class="weather-box">
+    <h3><ion-icon name="cloud-outline"></ion-icon> El clima en la capital del chocolate es:</h3>
+    <p>Temperatura: {{ weatherData.current.temp_c }} °C <ion-icon name="cloud-outline"></ion-icon></p>
+  </div>
+</ion-content>

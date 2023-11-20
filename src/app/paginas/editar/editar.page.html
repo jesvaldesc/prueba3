@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Nuevo nombre</ion-label>
+    <ion-input [(ngModel)]="productoEditado.nombre" placeholder="Nuevo nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Editar Precio</ion-label>
+    <ion-input [(ngModel)]="productoEditado.precio" placeholder="Editar Precio"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Editar gramos</ion-label>
+    <ion-input [(ngModel)]="productoEditado.gramos" placeholder="Editar gramos"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="updateProduct()" color="medium">Guardar Cambios</ion-button>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="false" class="ion-padding" id="login_toolbar">
+  <ion-header collapse="condense" >
+
+  </ion-header>
+  <h1 class="ion-text-center">Sweet Choc</h1>
+  <br>
+  <h3 class="ion-text-center">Bienvenido!</h3>
+  <br>
+
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="email" color="dark"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="password" label="Password" type="password" ></ion-input>
+  </ion-item></ion-col></ion-row>
+<ion-col >
+  <div class="ion-text-center">
+  <ion-button color="light" (click)="login()" expand="full">Ingresar</ion-button></div></ion-col>
+  <ion-col>
+    <div class= "ion-text-center">
+      <a href="/registrar">Crea tu cuenta gratis</a>
+    </div>
+  </ion-col>
+
+</ion-grid>
+</ion-content>

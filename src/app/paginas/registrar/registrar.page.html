@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Registro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input  [(ngModel)]="password" type="password" required></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" type="submit" (click)="register()" color="medium">Registrarse</ion-button>
+</ion-content>
