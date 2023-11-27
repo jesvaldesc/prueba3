@@ -1,6 +1,4 @@
-// login.component.ts
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../servicio/auth.service';
 import { NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
@@ -9,41 +7,39 @@ import { ToastController } from '@ionic/angular';
   selector: 'app-login',
   templateUrl: 'login.page.html',
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
 
   constructor(private authService: AuthService, private navCtrl: NavController, private toastController: ToastController) {}
 
-  async presentSuccessToast() {
-    const toast = await this.toastController.create({
-      message: 'Sesión iniciada exitosamente',
-      duration: 2000, // Duración
-      position: 'top' // Posición
-    });
-    toast.present();
+  async ngOnInit() {
+    // Obtener las credenciales almacenadas si están disponibles
+    const storedCredentials = await this.authService.getStoredCredentials();
+    this.email = storedCredentials.email;
+    this.password = storedCredentials.password;
   }
-  async presentSuccessToast2() {
+
+  async presentSuccessToast(message: string) {
     const toast = await this.toastController.create({
-      message: 'Email o contraseña incorrectos',
-      duration: 2000, // Duración
-      position: 'top' // Posición
+      message: message,
+      duration: 2000,
+      position: 'top'
     });
     toast.present();
   }
 
   login() {
-    this.authService.login(this.email, this.password)
-      .subscribe(
-        (result) => {
-          console.log('Inicio de sesión exitoso!', result);
-          this.presentSuccessToast();
-          this.navCtrl.navigateForward('/home');
-          },
-        (error) => {
-          console.error('Error durante el inicio de sesión:', error);
-          this.presentSuccessToast2();
-        }
-      );
+    this.authService.login(this.email, this.password).subscribe(
+      (result) => {
+        console.log('Inicio de sesión exitoso!', result);
+        this.presentSuccessToast('Sesión iniciada exitosamente');
+        this.navCtrl.navigateForward('/home');
+      },
+      (error) => {
+        console.error('Error durante el inicio de sesión:', error);
+        this.presentSuccessToast('Email o contraseña incorrectos');
+      }
+    );
   }
 }
